@@ -18,12 +18,27 @@ def get_frameworks(number_of_frameworks=100):
         framework_dict["framework-{0}".format(y+1)] = random.randint(575,900)
     return framework_dict
 
+"""
+Implement the following using chained coroutines.
+-> Create an offer struct
+-> Master coroutine implements drf_per_slave with no sleep
+-> Framework coroutine implements drf_per_slave with 10-15ms sleep to simulate
+   network latency
+-> Do this in a loop (run_forever) OR for x iterations (run_until_complete)
+"""
+
+
 class drf_per_slave:
     
     def __init__(self,slave_nodes,frameworks):
         self.slave_nodes = slave_nodes
         self.frameworks = frameworks
 
+    @asyncio.coroutine
+    def driver_coroutine(self):
+
+
+    @asyncio.coroutine
     def master_coroutine(self):
         slave_nodes_local = self.slave_nodes
         for node in sorted(self.slave_nodes.items()):
